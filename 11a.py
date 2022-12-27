@@ -26,7 +26,7 @@ class monkey:
             a = str(self.values[index])
         if b == 'old':
             b = str(self.values[index])
-        new = eval(a+self.operation+b) % mod
+        new = eval(a+self.operation+b) // 3
         if new % self.test == 0:
             return new, self.true_throw
         else:
@@ -37,7 +37,7 @@ mod = 1
 for x in monkeys:   
     mod *= x.test
 
-for i in range(10000):
+for i in range(20):
     for x in monkeys:
         x.inspected += len(x.values)
         for j in range(len(x.values)):
