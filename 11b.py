@@ -46,4 +46,4 @@ for i in range(10000):
         x.values = []
 inspect = [x.inspected for x in monkeys]
 inspect = sorted(inspect, reverse=True)
-print(inspect[0] * inspect[1] )
+print(inspect[0] * inspect[1])

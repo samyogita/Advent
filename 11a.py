@@ -33,9 +33,7 @@ class monkey:
             return new, self.false_throw
 
 monkeys = [monkey(x) for x in s]
-mod = 1
-for x in monkeys:   
-    mod *= x.test
+
 
 for i in range(20):
     for x in monkeys:
