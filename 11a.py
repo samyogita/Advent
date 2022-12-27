@@ -25,19 +25,25 @@ class monkey:
         if a == 'old':
             a = str(self.values[index])
         if b == 'old':
-            a = str(self.values[index])
-        new = eval(a+self.operation+b) // 3
+            b = str(self.values[index])
+        new = eval(a+self.operation+b) % mod
         if new % self.test == 0:
             return new, self.true_throw
         else:
             return new, self.false_throw
 
 monkeys = [monkey(x) for x in s]
-inspect = [x.inspected for x in monkeys]
-for i in range(20):
+mod = 1
+for x in monkeys:   
+    mod *= x.test
+
+for i in range(10000):
     for x in monkeys:
+        x.inspected += len(x.values)
         for j in range(len(x.values)):
             value, throw_to = x.operate(j)
             monkeys[throw_to].values.append(value)
-            x.values = []
-print(inspect)
+        x.values = []
+inspect = [x.inspected for x in monkeys]
+inspect = sorted(inspect, reverse=True)
+print(inspect[0] * inspect[1] )
